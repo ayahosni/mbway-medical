@@ -1,0 +1,26 @@
+.stats-section {
+    background: linear-gradient(to right, #FF0000, #990000);
+    padding: 20px 0;
+  }
+  
+  .stats-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .stat-item {
+    text-align: center;
+    color: #FFFFFF;
+    
+    .stat-value {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      font-size: 18px;
+    }
+  }

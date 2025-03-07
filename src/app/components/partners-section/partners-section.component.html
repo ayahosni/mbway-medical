@@ -1,0 +1,31 @@
+<section class="partners-section">
+  <div class="container">
+    <h2 class="section-title">Our success partners</h2>
+    <p class="section-description">
+      Our team of highly skilled and experienced doctors is dedicated to providing top-quality medical care with professionalism, compassion, and the latest advancements in healthcare to ensure the best outcomes for our patients      <div class="search-container">
+        <div class="search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" placeholder="What do you need?" />
+          <i class="fas fa-microphone voice-icon"></i>
+        </div>
+        <button class="get-now-btn">Get Now</button>
+      </div>
+    <div class="partners-grid">
+      <div *ngFor="let partner of partners" class="partner-card">
+        <div class="partner-logo">
+          <img src="../assets/images/doctor.jpg" [alt]="partner.name">
+        </div>
+        <div class="partner-info">
+          <h3 class="partner-name">{{ partner.name }}</h3>
+          <p class="partner-type">{{ partner.specialty }}</p>
+          <div class="social-links">
+            <a [href]="partner.facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a [href]="partner.linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a [href]="partner.instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+          <button class="view-profile">View Profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

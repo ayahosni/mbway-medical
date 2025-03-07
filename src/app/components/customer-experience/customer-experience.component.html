@@ -1,0 +1,27 @@
+<section class="testimonials">
+  <h1>Our customers' experience</h1>
+  <p class="subheading">
+      Delivering exceptional care and outstanding results, our patients' satisfaction speaks for itself. 
+      Their trust and positive transformations inspire us every day.
+  </p>
+
+  <div class="testimonials-grid">
+      <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+          <div class="profile">
+            <img src="../assets/images/doctor.jpg" >
+            <h3>{{testimonial.name}}</h3>
+              <p>★★★★★</p>
+          </div>
+          <p class="testimonial-text">{{testimonial.text}}</p>
+          <div class="before-after">
+            <div data-label="Before">
+                <img src="../assets/images/doctor.jpg">
+            </div>
+            <div data-label="After">
+              <img src="../assets/images/doctor.jpg">
+            </div>
+        </div>
+        
+      </div>
+  </div>
+</section>

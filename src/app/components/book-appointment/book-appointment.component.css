@@ -1,0 +1,360 @@
+.book-appointment {
+  position: relative;
+  background: url('/../assets/images/doctor.jpg') no-repeat center center/cover;
+  padding: 30px 0; 
+  font-family: 'Bricolage Grotesque', sans-serif;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* لون أسود شفاف */
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .appointment-content {
+    display: flex;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: visible;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    max-height: none; 
+  }
+
+  .doctors-image {
+    flex: 1;
+    position: relative;
+    padding: 30px; 
+    overflow: hidden;
+    max-height: 800px; 
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .info-boxes {
+      position: absolute;
+      bottom: 20px; 
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .info-box {
+      width: 300px;
+      height: 35px; 
+      background: white;
+      color: red;
+      font-size: 16px; 
+      font-weight: bold;
+      border-radius: 10px;
+      margin: 10px; 
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .appointment-form {
+    flex: 1;
+    padding: 30px; 
+
+    h2 {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 8px; 
+      font-size: 24px; 
+    }
+
+    .description {
+      text-align: center;
+      color: #ffffff;
+      font-size: 16px;
+      margin-bottom: 15px; 
+      font-weight: bold;
+    }
+
+    .form-group-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px; 
+      margin-bottom: 10px; 
+    }
+
+    .form-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px; 
+    }
+
+    label {
+      color: #ffffff;
+      font-size: 14px; 
+      margin-bottom: 3px; 
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%; 
+      padding: 8px; 
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 14px; 
+      font-family: 'Bricolage Grotesque', sans-serif;
+
+    }
+
+    textarea {
+      height: 80px; 
+      resize: none;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px; 
+      gap: 10px; 
+    }
+
+    .cancel-btn, .save-btn {
+      width: 48%;
+      padding: 10px; 
+      border: none;
+      border-radius: 5px;
+      font-size: 16px; 
+      cursor: pointer;
+    }
+
+    .cancel-btn {
+      color: #fff;
+      background-color: transparent; /* جعل الخلفية شفافة */
+      border: 1px solid #ccc; /* إضافة حدود خفيفة حول الزر ليكون مرئيًا */
+      font-weight:bold;
+    
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.5); /* عند التمرير، نضيف خلفية شفافة داكنة قليلاً */
+      }
+    }
+    
+
+    .save-btn {
+      background-color: #fff;
+      color: red;
+      font-weight:bold;
+
+
+      
+      &:hover {
+        background-color: #c01010;
+        color:white;
+      }
+    }
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+    .radio-option {
+      display: flex;
+      align-items: center;
+      background-color: #f0f0f0;
+      padding: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      
+      input[type="radio"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border: 2px solid #ccc;
+        border-radius: 50%;
+        outline: none;
+        margin-right: 10px;
+        position: relative;
+        
+        &:checked {
+          border-color: #e01a1a;
+          
+          &:after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background-color: #e01a1a;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+      
+      label {
+        color: #333;
+        font-weight: normal;
+        margin-bottom: 0;
+        cursor: pointer;
+        font-family: 'Bricolage Grotesque', sans-serif;
+
+      }
+    }
+  }
+
+  .file-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color:white;
+    border-radius:5px;
+    
+    input {
+      padding-left: 30px;
+    }
+    
+    .pdf-icon {
+      position: absolute;
+      left: 10px;
+      font-size: 16px; 
+      color: red;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .appointment-content {
+      flex-direction: column;
+    }
+
+    .doctors-image {
+      max-height: 250px; 
+    }
+
+    .info-boxes {
+      flex-direction: column;
+      align-items: center;
+      
+      .info-box {
+        width: 250px; 
+        height: 50px !important; 
+        margin: 5px; 
+      }
+    }
+    
+    .form-group-row {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+}
+/* إضافة نمط للقائمة المنسدلة مع أزرار الراديو */
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.dropdown-toggle {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-toggle::after {
+  content: '▼';
+  font-size: 10px;
+  color: #666;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  z-index: 10;
+  margin-top: 2px;
+  display: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+}
+
+.radio-option:last-child {
+  border-bottom: none;
+}
+
+.radio-option:hover {
+  background-color: #f9f9f9;
+}
+
+.radio-option input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  outline: none;
+  margin-right: 10px;
+  position: relative;
+}
+
+.radio-option input[type="radio"]:checked {
+  border-color: #e01a1a;
+}
+
+.radio-option input[type="radio"]:checked:after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background-color: #e01a1a;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.radio-option label {
+  color: #333;
+  font-weight: normal;
+  margin-bottom: 0;
+}
