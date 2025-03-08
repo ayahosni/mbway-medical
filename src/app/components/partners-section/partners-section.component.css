@@ -1,6 +1,19 @@
 .partners-section {
   text-align: center;
   padding: 50px 0;
+  /* Add entrance animation */
+  animation: fadeInSection 1s ease-out;
+}
+
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .container {
@@ -12,20 +25,41 @@
   font-size: 32px;
   margin-bottom: 10px;
   color: #FF0000;
-  font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
-
+  font-family: 'Bricolage Grotesque', sans-serif;
+  /* Add title animation */
+  animation: slideInTitle 1.2s ease-out;
 }
 
-
+@keyframes slideInTitle {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .section-description {
   margin-bottom: 20px;
   color: #FF0000;
   font-size: 26px;
   font-weight: medium;
-  font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
+  font-family: 'Bricolage Grotesque', sans-serif;
+  /* Add description animation */
+  animation: fadeInDesc 1.4s ease-out;
+}
 
+@keyframes fadeInDesc {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .partners-grid {
@@ -39,11 +73,33 @@
   border-radius: 10px 10px 0 0;
   overflow: hidden;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  /* Add staggered card entrance animation */
+  animation: fadeInCard 0.8s ease-out backwards;
+}
+
+/* Stagger card animations */
+.partner-card:nth-child(1) { animation-delay: 0.2s; }
+.partner-card:nth-child(2) { animation-delay: 0.4s; }
+.partner-card:nth-child(3) { animation-delay: 0.6s; }
+.partner-card:nth-child(4) { animation-delay: 0.8s; }
+.partner-card:nth-child(5) { animation-delay: 1s; }
+.partner-card:nth-child(6) { animation-delay: 1.2s; }
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: A1;
+    transform: translateY(0);
+  }
 }
 
 .partner-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .partner-logo img {
@@ -51,6 +107,12 @@
   height: 250px;
   object-fit: cover;
   display: block;
+  /* Add image hover animation */
+  transition: transform 0.5s ease;
+}
+
+.partner-card:hover .partner-logo img {
+  transform: scale(1.05);
 }
 
 .partner-info {
@@ -58,22 +120,37 @@
   color: white;
   text-align: center;
   margin-top: -10px; /* إزالة أي فراغ ناتج عن الصورة */
-  font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
+  font-family: 'Bricolage Grotesque', sans-serif;
+  /* Add info transition */
+  transition: background 0.3s ease;
+}
 
-  
+.partner-card:hover .partner-info {
+  background: linear-gradient(to bottom, #ff3333, #333);
 }
 
 .partner-name {
   font-size: 1.5rem;
   margin: 10px 0;
-  font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
+  font-family: 'Bricolage Grotesque', sans-serif;
+  /* Add name animation */
+  transition: transform 0.3s ease;
+}
 
+.partner-card:hover .partner-name {
+  transform: scale(1.05);
 }
 
 .partner-type {
   font-size: 1rem;
   margin-bottom: 10px;
   color: #f0f0f0;
+  /* Add type animation */
+  transition: opacity 0.3s ease;
+}
+
+.partner-card:hover .partner-type {
+  opacity: 0.8;
 }
 
 .social-links {
@@ -86,38 +163,70 @@
 .social-links a {
   color: white;
   font-size: 1.2rem;
-  transition: color 0.3s;
-  font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
+  transition: color 0.3s, transform 0.3s;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 .social-links a:hover {
-  color: #221c03;
+  color: #ffffcc;
+  transform: translateY(-3px);
 }
 
 .view-profile {
   display: block;
   width: 100%;
- background-color:  #FF0000;
+  background-color: #FF0000;
   color: white;
   padding: 10px;
   border: none;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s;
-  font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
+  transition: background 0.3s, transform 0.3s;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
 .view-profile:hover {
   background: darkred;
+  transform: translateY(-2px);
 }
+
+/* Add button animation */
+.view-profile::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: rgba(255,255,255,0.2);
+  transition: 0.4s;
+}
+
+.view-profile:hover::after {
+  left: 100%;
+}
+
 .search-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 18px; /* المسافة بين الـ input والزرار */
+  gap: 18px;
   margin-top: 20px;
+  /* Add search container animation */
+  animation: fadeInUp 1.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .search-box {
@@ -128,7 +237,13 @@
   padding: 5px 15px;
   width: 700px;
   box-shadow: 0px 2px 5px #B9B9B9;
-  margin-bottom:30px;
+  margin-bottom: 30px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.search-box:focus-within {
+  box-shadow: 0px 4px 10px rgba(255, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
 .search-box input {
@@ -140,17 +255,21 @@
   font-size: 16px;
   color: #BFBFBF;
   font-weight: 500;
-  font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
-
-
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
-.search-box .search-icon,
+.search-box .search-icon, 
 .search-box .voice-icon {
   color: #BFBFBF;
   font-size: 16px;
   cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.search-box .search-icon:hover, 
+.search-box .voice-icon:hover {
+  color: #FF0000;
+  transform: scale(1.2);
 }
 
 .get-now-btn {
@@ -162,13 +281,130 @@
   font-weight: bold;
   cursor: pointer;
   border-radius: 16px;
-  transition: background 0.3s;
-  margin-bottom:30px;
-  font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
-
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
 .get-now-btn:hover {
   background: darkred;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(255, 0, 0, 0.3);
+}
+
+/* Add button animation */
+.get-now-btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: rgba(255,255,255,0.2);
+  transition: 0.4s;
+}
+
+.get-now-btn:hover::after {
+  left: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .container {
+    width: 90%;
+  }
+  
+  .search-box {
+    width: 600px;
+  }
+}
+
+@media (max-width: 992px) {
+  .partners-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  
+  .search-box {
+    width: 500px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .section-description {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .partners-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .search-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .search-box {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .get-now-btn {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .section-description {
+    font-size: 18px;
+  }
+  
+  .partner-name {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 95%;
+  }
+  
+  .partners-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .partner-logo img {
+    height: 220px;
+  }
+  
+  .section-title {
+    font-size: 22px;
+  }
+  
+  .section-description {
+    font-size: 16px;
+  }
+  
+  .partner-name {
+    font-size: 1.2rem;
+  }
+  
+  .partner-type {
+    font-size: 0.9rem;
+  }
+  
+  .social-links a {
+    font-size: 1rem;
+  }
 }

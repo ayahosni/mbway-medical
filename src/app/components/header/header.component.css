@@ -2,14 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px; /* تقليل البادينج من أعلى وأسفل من 15px إلى 10px */
+  padding: 12px 20px;
   background-color: white;
   margin-left: 100px;
   margin-right: 100px;
-  position: relative; /* تغيير من fixed إلى relative في الحالة الأساسية */
-  z-index: 1000; /* ضمان أن الهيدر يظهر فوق العناصر الأخرى */
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   
-  /* قم بإزالة الهوامش على الشاشات الصغيرة */
   @media screen and (max-width: 1200px) {
     margin-left: 40px;
     margin-right: 40px;
@@ -19,19 +19,34 @@
     margin-left: 20px;
     margin-right: 20px;
     flex-wrap: wrap;
-    padding: 8px 15px; /* تقليل البادينج أكثر للشاشات الصغيرة */
+    padding: 10px 15px;
   }
   
   @media screen and (max-width: 576px) {
     margin-left: 10px;
     margin-right: 10px;
-    padding: 5px 10px; /* تقليل البادينج أكثر للشاشات الصغيرة جداً */
+    padding: 8px 10px;
+  }
+  
+  /* تثبيت الهيدر عند فتح القائمة فقط */
+  &.menu-active {
+    @media screen and (max-width: 992px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      margin: 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
   }
 }
 
 .logo {
   text-decoration: none;
   font-family: 'Koulen', sans-serif;
+  display: flex;
+  align-items: center;
   
   @media screen and (max-width: 576px) {
     flex: 1;
@@ -39,22 +54,38 @@
 }
 
 .logo-text {
-  font-size: 35px; /* تقليل حجم الخط قليلاً */
+  font-size: 32px;
   color: #e01a1a;
   font-family: 'Koulen', sans-serif;
   
+  @media screen and (max-width: 768px) {
+    font-size: 28px;
+  }
+  
   @media screen and (max-width: 576px) {
-    font-size: 24px; /* تقليل الحجم على الموبايل */
+    font-size: 24px;
+  }
+  
+  @media screen and (max-width: 360px) {
+    font-size: 22px;
   }
 }
 
 .logo .logo-subtext {
   color: #0900FF;
-  font-size: 35px; /* تقليل حجم الخط قليلاً */
+  font-size: 32px;
   font-family: 'Koulen', sans-serif;
   
+  @media screen and (max-width: 768px) {
+    font-size: 28px;
+  }
+  
   @media screen and (max-width: 576px) {
-    font-size: 24px; /* تقليل الحجم على الموبايل */
+    font-size: 24px;
+  }
+  
+  @media screen and (max-width: 360px) {
+    font-size: 22px;
   }
 }
 
@@ -62,11 +93,12 @@
   @media screen and (max-width: 992px) {
     order: 3;
     width: 100%;
-    margin-top: 10px; /* تقليل الهامش العلوي من 15px إلى 10px */
-    display: none; /* إخفاء القائمة بشكل افتراضي على الشاشات الصغيرة */
+    margin-top: 10px;
+    display: none;
     
     &.active {
-      display: block; /* عرض القائمة عند النقر على زر الهامبرجر */
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
     }
   }
   
@@ -80,13 +112,17 @@
     @media screen and (max-width: 992px) {
       flex-direction: column;
       align-items: center;
+      gap: 12px;
+      padding: 10px 0;
     }
     
     li {
-      margin: 0 10px;
+      margin: 0 12px;
       
       @media screen and (max-width: 992px) {
-        margin: 8px 0; /* تقليل الهامش من 10px إلى 8px */
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
       }
     }
     
@@ -94,7 +130,14 @@
       text-decoration: none;
       color: #333;
       font-weight: 500;
-      font-size: 15px; /* تقليل حجم خط الروابط */
+      font-size: 16px;
+      transition: color 0.2s ease;
+      
+      @media screen and (max-width: 768px) {
+        font-size: 15px;
+        display: block;
+        padding: 8px 0;
+      }
       
       &:hover {
         color: #e01a1a;
@@ -113,53 +156,93 @@
   
   @media screen and (max-width: 576px) {
     flex: 0;
+    min-width: 125px;
+    justify-content: flex-end;
   }
   
-  .login-btn {
-    background-color: transparent;
-    border: 1px solid #e01a1a;
-    color: #e01a1a;
-    margin-right: 10px;
-    padding: 6px 12px; /* تقليل البادينج */
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 14px; /* تقليل حجم الخط */
-    font-family: 'Bricolage Grotesque', sans-serif;
-    
-    @media screen and (max-width: 768px) {
-      padding: 5px 10px;
-      font-size: 13px;
-    }
-    
-    @media screen and (max-width: 576px) {
-      padding: 0px 10px;
-      font-size: 12px;
-      margin-right: 5px;
-      height: 24px; /* تقليل الارتفاع */
-    }
+  @media screen and (max-width: 360px) {
+    min-width: 110px;
+  }
+}
+
+.login-btn {
+  background-color: transparent;
+  border: 1px solid #e01a1a;
+  color: #e01a1a;
+  margin-right: 10px;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+  
+  @media screen and (max-width: 768px) {
+    padding: 7px 12px;
+    font-size: 13px;
   }
   
-  .contact-btn {
-    background-color: #e01a1a;
-    border: none;
-    color: white;
-    padding: 6px 12px; /* تقليل البادينج */
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 14px; /* تقليل حجم الخط */
-    font-family: 'Bricolage Grotesque', sans-serif;
-    
-    @media screen and (max-width: 768px) {
-      padding: 5px 10px;
-      font-size: 13px;
-    }
-    
-    @media screen and (max-width: 576px) {
-      padding: 3px 8px;
-      font-size: 12px;
-    }
+  @media screen and (max-width: 576px) {
+    padding: 6px 10px;
+    font-size: 12px;
+    margin-right: 8px;
+    min-width: 45px;
+  }
+  
+  @media screen and (max-width: 360px) {
+    padding: 5px 8px;
+    font-size: 11px;
+    margin-right: 6px;
+    min-width: 40px;
+  }
+  
+  &:hover {
+    background-color: rgba(224, 26, 26, 0.1);
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.contact-btn {
+  background-color: #e01a1a;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+  
+  @media screen and (max-width: 768px) {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+  
+  @media screen and (max-width: 576px) {
+    padding: 6px 10px;
+    font-size: 12px;
+    min-width: 45px;
+  }
+  
+  @media screen and (max-width: 360px) {
+    padding: 5px 8px;
+    font-size: 11px;
+    min-width: 40px;
+  }
+  
+  &:hover {
+    background-color: #c01111;
+  }
+  
+  &:active {
+    transform: scale(0.98);
   }
 }
 
@@ -168,30 +251,44 @@
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 25px; /* تقليل الحجم من 30px إلى 25px */
-  height: 18px; /* تقليل الارتفاع من 21px إلى 18px */
+  width: 24px;
+  height: 18px;
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
+  margin-right: 15px;
+  z-index: 1001;
   
   @media screen and (max-width: 992px) {
     display: flex;
     order: 2;
-    margin-left: 15px;
+  }
+  
+  @media screen and (max-width: 576px) {
+    width: 22px;
+    height: 16px;
+    margin-right: 12px;
+  }
+  
+  @media screen and (max-width: 360px) {
+    width: 20px;
+    height: 15px;
+    margin-right: 10px;
   }
   
   .bar {
-    height: 2px; /* تقليل سمك الشرائط من 3px إلى 2px */
+    height: 2px;
     width: 100%;
-    background-color: red;
-    border-radius: 3px;
+    background-color: #e01a1a;
+    border-radius: 2px;
     transition: all 0.3s ease;
+    margin-left:15px;
   }
   
   &.active {
     .bar:first-child {
-      transform: translateY(8px) rotate(45deg); /* تعديل مقدار الإزاحة */
+      transform: translateY(8px) rotate(45deg);
     }
     
     .bar:nth-child(2) {
@@ -199,31 +296,57 @@
     }
     
     .bar:last-child {
-      transform: translateY(-8px) rotate(-45deg); /* تعديل مقدار الإزاحة */
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    @media screen and (max-width: 576px) {
+      .bar:first-child {
+        transform: translateY(7px) rotate(45deg);
+      }
+      
+      .bar:last-child {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+    
+    @media screen and (max-width: 360px) {
+      .bar:first-child {
+        transform: translateY(6.5px) rotate(45deg);
+      }
+      
+      .bar:last-child {
+        transform: translateY(-6.5px) rotate(-45deg);
+      }
     }
   }
 }
 
 /* إضافة كود للتأكد من أن Hero Section يبدأ بعد الهيدر تماماً */
 .hero-section {
-  margin-top: 20px; /* إضافة هامش علوي للهيرو سيكشن */
+  margin-top: 20px;
   position: relative;
-  z-index: 1; /* جعل الهيرو سيكشن خلف الهيدر */
+  z-index: 1;
+  
+  /* تعديل الهامش عندما تكون القائمة مفتوحة والهيدر ثابت */
+  body.menu-active & {
+    @media screen and (max-width: 992px) {
+      margin-top: 70px; /* تعديل هذه القيمة حسب ارتفاع الهيدر */
+    }
+    
+    @media screen and (max-width: 576px) {
+      margin-top: 60px;
+    }
+  }
 }
 
-/* إصلاح مشكلة تداخل الهيدر على الشاشات الصغيرة - فقط عند تفعيل القائمة */
-@media screen and (max-width: 992px) {
-  .main-header.menu-active {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* إضافة تحريك سلس للقائمة عند فتحها */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  
-  /* عندما تكون القائمة مفتوحة، أضف مساحة إضافية لمحتوى الصفحة */
-  body.menu-active {
-    padding-top: 60px; /* تعديل هذه القيمة حسب ارتفاع الهيدر */
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

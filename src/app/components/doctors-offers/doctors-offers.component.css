@@ -2,14 +2,12 @@
     background-color: #fff;
     padding: 40px 0;
     text-align: center;
-    font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
+    font-family: 'Bricolage Grotesque', sans-serif;
 
     .container {
         width: 80%;
         margin: auto;
-        font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
+        font-family: 'Bricolage Grotesque', sans-serif;
     }
 
     .section-title {
@@ -17,8 +15,7 @@
         margin-bottom: 10px;
         color: #FF0000;
         text-align: center;
-        font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
+        font-family: 'Bricolage Grotesque', sans-serif;
     }
 
     .section-description {
@@ -27,28 +24,30 @@
         font-size: 26px;
         font-weight: medium;
         text-align: center;
-        font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
+        font-family: 'Bricolage Grotesque', sans-serif;
     }
 
+    /* تغيير هنا من grid إلى flex */
     .offers-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        display: flex;
+        flex-wrap: wrap;
         gap: 20px;
+        justify-content: center;
     }
 
+    /* تغيير نظام العرض للكارد */
     .doctor-card {
+        flex: 0 0 calc(33.333% - 20px);
         display: flex;
         width: 100%;
-        min-height: 150px; /* تعيين الحد الأدنى للارتفاع */
+        min-height: 150px;
         height: auto;
         border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
         background-color: #f9f9f9;
-        font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
+        font-family: 'Bricolage Grotesque', sans-serif;
 
         &:hover {
             transform: scale(1.05);
@@ -87,47 +86,42 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: flex-start;
-                flex-grow: 1; /* توسيع العنصر بشكل مرن */
+                flex-grow: 1;
                 padding-right: 10px;
-                overflow: hidden; /* إخفاء النص الزائد */
-                max-height: 70%; /* تحديد الحد الأقصى للارتفاع */
+                overflow: hidden;
+                max-height: 70%;
                 display: flex;
-                flex-wrap: wrap; /* السماح بتوزيع النص بشكل منسق */
-                font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
+                flex-wrap: wrap;
+                font-family: 'Bricolage Grotesque', sans-serif;
             }
 
             .doctor-name,
             .doctor-specialty {
-                white-space: normal; /* يسمح بتكسر النصوص */
-                word-wrap: break-word; /* يسمح لكسر الكلمات الطويلة */
+                white-space: normal;
+                word-wrap: break-word;
                 line-height: 1.2;
                 max-width: 100%;
-                text-align: start; /* محاذاة النص من البداية */
-                font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
+                text-align: start;
+                font-family: 'Bricolage Grotesque', sans-serif;
             }
 
             .doctor-name {
                 font-size: 20px;
                 font-weight: bold;
-                font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
+                font-family: 'Bricolage Grotesque', sans-serif;
             }
 
             .doctor-specialty {
                 font-size: 11px;
                 font-weight: bold;
-                white-space: nowrap; /* يمنع النزول إلى سطر جديد */
-                overflow: visible; /* يسمح بظهور النص كاملاً */
-                text-overflow: clip; /* يمنع ظهور الثلاث نقاط */
-                display: inline-block; /* يجعل العنصر يتكيف مع حجم النص */
-                min-width: fit-content; /* يمنع تصغير العنصر أكثر من النص */
-                flex-grow: 1; /* يسمح بتمدد العنصر مع النص */
-                font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
+                white-space: nowrap;
+                overflow: visible;
+                text-overflow: clip;
+                display: inline-block;
+                min-width: fit-content;
+                flex-grow: 1;
+                font-family: 'Bricolage Grotesque', sans-serif;
             }
-            
         }
 
         .doctor-right {
@@ -142,14 +136,14 @@
 
             .discount-badge {
                 color: black;
-                padding: 20px 10px;
+                padding: 10px 10px;
                 border-radius: 4px;
                 font-size: 24px;
                 font-weight: bold;
             }
 
             .offer-description {
-                font-size: 16px;
+                font-size: 18px;
                 color: #ff0000;
                 margin-bottom: 8px;
                 font-weight: 500;
@@ -157,8 +151,7 @@
                 overflow-wrap: break-word;
                 white-space: normal;
                 max-width: 100%;
-                font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
-
+                font-family: 'Bricolage Grotesque', sans-serif;
             }
 
             .get-now-btn {
@@ -174,7 +167,9 @@
                 margin-left: 0;
                 margin-right: 0;
                 margin-bottom: 0;
-                font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
+                font-size: 16px;
+
+                font-family: 'Bricolage Grotesque', sans-serif;
 
                 &:hover {
                     background-color: #cc0000;
@@ -184,15 +179,28 @@
     }
 }
 
-@media (max-width: 768px) {
-    .offers-grid {
-        grid-template-columns: repeat(2, 1fr);
+/* تحديث الميديا كويريز للاستجابة المناسبة */
+@media (max-width: 1024px) {
+    .doctors-offers .offers-grid {
+        justify-content: space-between;
+    }
+    
+    .doctors-offers .doctor-card {
+        flex: 0 0 calc(50% - 15px);
     }
 }
 
+@media (max-width: 768px) {
+    .doctors-offers .doctor-card {
+        flex: 0 0 100%;
+        margin-bottom: 15px;
+    }
+}
+
+/* لا تغييرات على العناصر الداخلية في الكارد في الشاشات الصغيرة */
 @media (max-width: 480px) {
-    .offers-grid {
-        grid-template-columns: 1fr;
+    .doctors-offers .container {
+        width: 95%;
     }
 }
 

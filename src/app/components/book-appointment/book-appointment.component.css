@@ -11,7 +11,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8); /* لون أسود شفاف */
+    background: rgba(0, 0, 0, 0.8);
     z-index: 1;
   }
 
@@ -79,15 +79,19 @@
       text-align: center;
       color: #ffffff;
       margin-bottom: 8px; 
-      font-size: 24px; 
+      font-size: 30px; 
+      font-family: 'Bricolage Grotesque', sans-serif;
+
     }
 
     .description {
       text-align: center;
       color: #ffffff;
-      font-size: 16px;
+      font-size: 22px;
       margin-bottom: 15px; 
-      font-weight: bold;
+      font-weight: medium;
+      font-family: 'Bricolage Grotesque', sans-serif;
+
     }
 
     .form-group-row {
@@ -118,7 +122,6 @@
       border-radius: 5px;
       font-size: 14px; 
       font-family: 'Bricolage Grotesque', sans-serif;
-
     }
 
     textarea {
@@ -144,78 +147,23 @@
 
     .cancel-btn {
       color: #fff;
-      background-color: transparent; /* جعل الخلفية شفافة */
-      border: 1px solid #ccc; /* إضافة حدود خفيفة حول الزر ليكون مرئيًا */
-      font-weight:bold;
+      background-color: transparent;
+      border: 1px solid #ccc;
+      font-weight: bold;
     
       &:hover {
-        background-color: rgba(0, 0, 0, 0.5); /* عند التمرير، نضيف خلفية شفافة داكنة قليلاً */
+        background-color: rgba(0, 0, 0, 0.5);
       }
     }
     
-
     .save-btn {
       background-color: #fff;
       color: red;
-      font-weight:bold;
-
-
+      font-weight: bold;
       
       &:hover {
         background-color: #c01010;
-        color:white;
-      }
-    }
-  }
-
-  .radio-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    
-    .radio-option {
-      display: flex;
-      align-items: center;
-      background-color: #f0f0f0;
-      padding: 8px;
-      border-radius: 5px;
-      cursor: pointer;
-      
-      input[type="radio"] {
-        appearance: none;
-        -webkit-appearance: none;
-        width: 18px;
-        height: 18px;
-        border: 2px solid #ccc;
-        border-radius: 50%;
-        outline: none;
-        margin-right: 10px;
-        position: relative;
-        
-        &:checked {
-          border-color: #e01a1a;
-          
-          &:after {
-            content: '';
-            width: 10px;
-            height: 10px;
-            background-color: #e01a1a;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-          }
-        }
-      }
-      
-      label {
-        color: #333;
-        font-weight: normal;
-        margin-bottom: 0;
-        cursor: pointer;
-        font-family: 'Bricolage Grotesque', sans-serif;
-
+        color: white;
       }
     }
   }
@@ -224,8 +172,8 @@
     position: relative;
     display: flex;
     align-items: center;
-    background-color:white;
-    border-radius:5px;
+    background-color: white;
+    border-radius: 5px;
     
     input {
       padding-left: 30px;
@@ -239,23 +187,59 @@
     }
   }
 
+  /* تعديلات الريسبونسف لإعادة ترتيب الأقسام */
   @media (max-width: 768px) {
     .appointment-content {
       flex-direction: column;
+      
+      /* إعادة ترتيب العناصر باستخدام فلكس أوردر */
+      .appointment-form {
+        display: flex;
+        flex-direction: column;
+        order: 4; /* آخر عنصر */
+        
+        /* إظهار النص في الأعلى باستخدام عناصر متحركة */
+        h2, .description {
+          order: -2; /* وضع العنوان والوصف في الأعلى داخل الفورم */
+          margin-bottom: 20px;
+        }
+        
+        /* إخفاء العنوان والوصف من مكانهما الأصلي والاحتفاظ بنسخة متحركة فقط */
+        .form-content {
+          order: 1;
+        }
+      }
+      
+      .doctors-image {
+        max-height: none;
+        order: 2; /* ثاني عنصر بعد النص */
+        padding-top: 10px;
+        
+        /* فصل الصورة عن المستطيلات */
+        .info-boxes {
+          position: static;
+          transform: none;
+          order: 3; /* ثالث عنصر */
+          margin-top: 20px;
+          width: 100%;
+        }
+      }
     }
-
-    .doctors-image {
-      max-height: 250px; 
-    }
-
+    
+    /* نمط المستطيلات بعد فصلها عن الصورة */
     .info-boxes {
+      position: static !important;
+      transform: none !important;
+      display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100%;
+      margin: 20px 0;
       
       .info-box {
-        width: 250px; 
-        height: 50px !important; 
-        margin: 5px; 
+        width: 250px;
+        height: 35px !important;
+        margin: 5px 0;
       }
     }
     
@@ -265,96 +249,33 @@
     }
   }
 }
-/* إضافة نمط للقائمة المنسدلة مع أزرار الراديو */
-.custom-dropdown {
-  position: relative;
-  width: 100%;
-  font-family: 'Bricolage Grotesque', sans-serif;
-}
 
-.dropdown-toggle {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: white;
-  font-size: 14px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+@media (max-width: 768px) {
+  .appointment-content {
+    display: flex !important;
+    flex-direction: column !important;
+  }
 
-.dropdown-toggle::after {
-  content: '▼';
-  font-size: 10px;
-  color: #666;
-}
+  /* العنوان والنص أولًا */
+  .appointment-form {
+    order: 1 !important;
+  }
 
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  z-index: 10;
-  margin-top: 2px;
-  display: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+  /* الصورة بعدها */
+  .doctors-image {
+    order: 2 !important;
+  }
 
-.dropdown-menu.show {
-  display: block;
-}
+  /* المستطيلات بعد الصورة مباشرة */
+  .info-boxes {
+    order: 3 !important;
+    position: relative !important;
+    margin-top: -20px !important; /* لتكون ملتصقة بالصورة */
+  }
 
-.radio-option {
-  display: flex;
-  align-items: center;
-  padding: 8px;
-  border-bottom: 1px solid #f0f0f0;
-  cursor: pointer;
-}
-
-.radio-option:last-child {
-  border-bottom: none;
-}
-
-.radio-option:hover {
-  background-color: #f9f9f9;
-}
-
-.radio-option input[type="radio"] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #ccc;
-  border-radius: 50%;
-  outline: none;
-  margin-right: 10px;
-  position: relative;
-}
-
-.radio-option input[type="radio"]:checked {
-  border-color: #e01a1a;
-}
-
-.radio-option input[type="radio"]:checked:after {
-  content: '';
-  width: 10px;
-  height: 10px;
-  background-color: #e01a1a;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.radio-option label {
-  color: #333;
-  font-weight: normal;
-  margin-bottom: 0;
+  /* الفورم يكون آخر عنصر */
+  .form-content {
+    order: 4 !important;
+    margin-top: 20px !important;
+  }
 }

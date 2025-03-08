@@ -2,22 +2,53 @@
   padding: 60px 20px;
   background-color: #f8f8f8;
   text-align: center;
-  font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
+  font-family: 'Bricolage Grotesque', sans-serif;
+  /* Add subtle section entrance animation */
+  animation: fadeInSection 1s ease-out;
+}
 
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .section-title {
   font-size: 32px;
   color: #000000;
   margin-bottom: 20px;
-  font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
+  font-family: 'Bricolage Grotesque', sans-serif;
+  /* Add title animation */
+  animation: slideInTitle 1.2s ease-out;
+}
 
+@keyframes slideInTitle {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .highlight {
   color: #FF0000;
-  font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
+  font-family: 'Bricolage Grotesque', sans-serif;
+  /* Add pulse animation like in hero section */
+  animation: pulse 2s infinite;
+}
 
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 .section-description {
@@ -27,8 +58,20 @@
   line-height: 1.6;
   font-size: 26px;
   font-weight: medium;
-  font-family: 'Bricolage Grotesque', sans-serif; /* تطبيق خط Bricolage Grotesque على WAY */
+  font-family: 'Bricolage Grotesque', sans-serif;
+  /* Add description animation */
+  animation: fadeInDesc 1.4s ease-out;
+}
 
+@keyframes fadeInDesc {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .departments-grid {
@@ -46,69 +89,124 @@
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  /* Add card hover animation */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  /* Add staggered card entrance animation */
+  animation: fadeInCard 0.8s ease-out backwards;
+}
+
+/* Stagger card animations based on their order */
+.department-card:nth-child(1) { animation-delay: 0.2s; }
+.department-card:nth-child(2) { animation-delay: 0.4s; }
+.department-card:nth-child(3) { animation-delay: 0.6s; }
+.department-card:nth-child(4) { animation-delay: 0.8s; }
+.department-card:nth-child(5) { animation-delay: 1s; }
+.department-card:nth-child(6) { animation-delay: 1.2s; }
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.department-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* ✅ ضبط صورة القسم مع التدرج اللوني */
 /* ✅ ضبط صورة القسم */
 .dept-image {
   position: relative; /* لتمكين الطبقة الشفافة */
-  height: 200px; 
-  overflow: hidden; 
+  height: 200px;
+  overflow: hidden;
 }
 
 .dept-image img {
-  width: 100%; 
-  height: 100%; 
+  width: 100%;
+  height: 100%;
   object-fit: cover; /* لضمان ظهور الصورة بالكامل */
-  display: block; 
+  display: block;
+  /* Add image hover zoom effect */
+  transition: transform 0.6s ease;
+}
+
+.department-card:hover .dept-image img {
+  transform: scale(1.1);
 }
 
 /* ✅ الطبقة الشفافة تغطي الصورة بالكامل */
 .dept-overlay {
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  width: 100%; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%; /* تغطي الصورة بالكامل */
-  background: linear-gradient(to left, rgba(249, 249, 249, 0.4), rgba(0, 0, 0, 0.7)); 
-  z-index: 1; 
+  background: linear-gradient(to left, rgba(249, 249, 249, 0.4), rgba(0, 0, 0, 0.7));
+  z-index: 1;
   pointer-events: none; /* تمنع الطبقة من تعطيل النقرات */
+  /* Add overlay transition */
+  transition: background 0.4s ease;
+}
+
+.department-card:hover .dept-overlay {
+  background: linear-gradient(to left, rgba(249, 249, 249, 0.2), rgba(0, 0, 0, 0.8));
 }
 
 /* ✅ اسم القسم فوق الصورة */
 .dept-name {
-  position: absolute; 
-  bottom: 20px; 
-  left: 0; 
-  width: 100%; 
-  font-size: 22px; 
-  color: white; 
-  font-weight: bold; 
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  font-size: 22px;
+  color: white;
+  font-weight: bold;
   text-align: start;
   z-index: 2; /* لضمان ظهور النص فوق الطبقة */
   padding-left: 10px;
   font-family: 'Inter', sans-serif;
+  /* Add name hover animation */
+  transition: transform 0.4s ease, padding-left 0.4s ease;
+}
 
+.department-card:hover .dept-name {
+  transform: translateX(5px);
+  padding-left: 15px;
 }
 
 /* ✅ صندوق الوصف تحت الصورة مباشرة */
 .dept-info {
-  padding: 10px; 
-  background: linear-gradient(to right, #000000, #FF0000); 
-  text-align: center; 
+  padding: 10px;
+  background: linear-gradient(to right, #000000, #FF0000);
+  text-align: center;
   height: 60px;
   font-family: 'Inter', sans-serif;
+  /* Add info section transition */
+  transition: background 0.4s ease;
+}
 
+.department-card:hover .dept-info {
+  background: linear-gradient(to right, #333333, #FF3333);
 }
 
 .dept-description {
-  color: #ffffff; 
-  font-size: 16px; 
-  margin: 0; 
+  color: #ffffff;
+  font-size: 16px;
+  margin: 0;
   font-family: 'Inter', sans-serif;
-
+  /* Add description hover effect */
+  transition: transform 0.4s ease;
 }
 
+.department-card:hover .dept-description {
+  transform: scale(1.05);
+}
 
 /* ✅ ضبط قسم الكاروسيل */
 .carousel {
@@ -116,14 +214,19 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding-top:20px;
+  padding-top: 20px;
 }
-
-
 
 .indicators {
   text-align: center;
   margin-top: 10px;
+  /* Add indicators animation */
+  animation: fadeIn 1.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .indicators span {
@@ -134,9 +237,22 @@
   border-radius: 50%;
   background-color: gray;
   cursor: pointer;
+  /* Add indicator transition */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.indicators span:hover {
+  transform: scale(1.2);
 }
 
 .indicators span.active {
   background-color: red;
+  /* Add pulse effect for active indicator */
+  animation: indicatorPulse 2s infinite;
 }
 
+@keyframes indicatorPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
