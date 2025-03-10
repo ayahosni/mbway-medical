@@ -24,3 +24,214 @@
   button {
     cursor: pointer;
   }
+
+
+  /* الوضع المظلم */
+.dark-mode {
+  background-color: #0D0D0D;
+}
+
+.dark-mode a {
+  color: #bbbbbb;
+}
+
+
+
+/* أي عناصر أخرى تحتاج لتغيير ألوانها */
+.dark-mode .card {
+  background-color: #222;
+  color: #fff;
+}
+
+.dark-mode .form-control {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #444;
+}
+/* الوضع الداكن */
+
+
+.dark-mode .hero-title {
+  color: #ffffff !important; /* لون العنوان */
+}
+
+.dark-mode .hero-subtitle {
+  color: #ffffff !important; /* لون العنوان */
+}
+.dark-mode .highlight {
+  color: #ffffff !important; /* لون العنوان */
+
+}
+.dark-mode .search-input {
+  background-color: #0D0D0D;
+
+  color: #ffffff;
+  border-color: #444343;
+}
+
+.dark-mode .search-btn {
+  background-color: #d32f2f; 
+  color: #ffffff;
+}
+
+.dark-mode .search-btn:hover {
+  background-color: #ff5252;
+}
+
+/* صورة الهيرو */
+.dark-mode .hero-image img {
+  filter: brightness(0.8); /* تقليل الإضاءة لجعلها متناسقة */
+}
+
+.dark-mode   .departments-section {
+  padding: 60px 20px;
+  background-color: #1F1F1F !important;
+  text-align: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  animation: fadeInSection 1s ease-out;
+}
+
+.dark-mode .section-title {
+  font-size: 32px;
+  color: #ffffff !important;
+}
+
+.dark-mode .highlight2 {
+  color: #FF0000
+  !important; /* لون العنوان */
+  animation: pulse 2s infinite;
+}
+
+.dark-mode.section-description {
+  color: #ffffff !important;
+}
+
+.dark-mode .indicators span.active {
+  
+  background-color: #ffffff !important;
+  }
+
+.dark-mode .search-box {
+  background-color: #1F1F1F !important;
+}
+.dark-mode .partner-card{
+  background: linear-gradient(to bottom, #ffffff, #1F1F1F);
+
+}
+.dark-mode .partner-card .partner-info {
+  color: #FF0000 !important;
+  background: linear-gradient(to bottom, #ffffff, #0D0D0D);
+
+}
+.dark-mode .partner-type {
+  color: #FF0000 !important;
+  font-weight: 500;
+
+}
+.dark-mode .social-links a {
+  color:  #FF0000 !important;
+}
+.dark-mode .view-profile {
+  background-color: #ffffff !important;
+  color: #FF0000 !important;
+}
+.dark-mode .doctors-offers {
+  background-color: #0D0D0D !important;
+}
+.dark-mode .doctor-info {
+  color: #FF0000 !important;
+}
+.dark-mode  .discount-badge {
+  color: #ffffff !important;
+}
+.dark-mode   .doctor-right {
+  background-color: #FF0000 !important;
+}
+.dark-mode .offer-description {
+  color: #ffffff !important;
+}
+.dark-mode .partner-section  .container .get-now-btn {
+  background-color: #ffffff !important;
+  color: #FF0000 !important;
+}
+.dark-mode .info-box {
+  background: linear-gradient(to bottom, #FF0000, #990000) !important;
+  color: #ffffff !important;
+}
+.dark-mode .book-appointment h2 {
+  color: #FF0000 !important;
+}
+.dark-mode .book-appointment .description {
+  color: #FF0000 !important;
+}
+.dark-mode .book-appointment input
+ {
+  color: #ffffff !important;
+  background: linear-gradient(to bottom, #FF0000, #990000) !important;
+
+}
+.dark-mode .book-appointment select{
+  color: #ffffff !important;
+  background: linear-gradient(to bottom, #FF0000, #990000) !important;
+}
+.dark-mode .book-appointment textarea{
+  color: #ffffff !important;
+  background: linear-gradient(to bottom, #FF0000, #990000) !important;
+}
+.dark-mode  .section-description{
+  color: #ffffff !important;
+}
+.dark-mode .book-appointment .cancel-btn {
+  border: 1px solid #FF0000 !important;
+}
+.dark-mode .book-appointment .save-btn {
+  background: linear-gradient(to bottom, #FF0000, #990000) !important;
+  color: #ffffff !important;
+
+}
+.dark-mode  .testimonials  h1 {
+  color: #ffffff !important;
+}
+.dark-mode  .testimonials .subheading {
+  color: #ffffff !important;
+}
+.dark-mode .footer{
+  background: #353535 !important;
+}
+.dark-mode .back{
+  background: linear-gradient(to bottom, #0D0D0D 50%, #353535 50%) !important;
+}
+.dark-mode .footer-column h2{
+  color: #ffffff !important;
+
+}
+.dark-mode .footer-column h4{
+  color: #ffffff !important;
+
+}
+.dark-mode .footer-column p ,ul,li{
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+ .dark-mode .footer-column  li a{
+  color: rgba(255, 255, 255, 0.6) !important;
+} 
+.dark-mode .social-icons a  {
+  background-color: #0D0D0D !important;
+  color: #ffffff !important;
+}
+.dark-mode .footer-bottom{
+    color: rgba(255, 255, 255, 0.6) !important;
+
+}
+.dark-mode .book-now-btn {
+  background-color: #ffffff !important;
+  color: #FF0000 !important;
+}
+.dark-mode .info-box:hover {
+  background: #ffffff !important;
+  color: #FF0000 !important;
+  transition: all 0.3s ease;
+}
+.dark-mode .book-appointment .save-btn:hover {
+  background: #ffffff !important;
+  color: #FF0000 !important;}

@@ -112,8 +112,7 @@
             }
 
             .doctor-specialty {
-                font-size: 11px;
-                font-weight: bold;
+                font-size: 18px;
                 white-space: nowrap;
                 overflow: visible;
                 text-overflow: clip;
@@ -154,7 +153,7 @@
                 font-family: 'Bricolage Grotesque', sans-serif;
             }
 
-            .get-now-btn {
+            .book-now-btn {
                 background-color: #ff0000;
                 color: white;
                 border: none;
@@ -168,6 +167,7 @@
                 margin-right: 0;
                 margin-bottom: 0;
                 font-size: 16px;
+                font-weight: 600;
 
                 font-family: 'Bricolage Grotesque', sans-serif;
 

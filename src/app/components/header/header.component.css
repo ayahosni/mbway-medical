@@ -3,12 +3,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 20px;
-  background-color: white;
+  background-color: transparent; /* تغيير من white إلى transparent */
   margin-left: 100px;
   margin-right: 100px;
   position: relative;
   z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   
   @media screen and (max-width: 1200px) {
     margin-left: 40px;
@@ -40,6 +40,53 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
   }
+  
+  /* أنماط الوضع المظلم */
+  &.dark-mode {
+    background-color: #0D0D0D;
+    
+    .logo-text {
+      color: #FF0000;
+    }
+    
+    .logo .logo-subtext {
+      color: #4d47ff;
+    }
+    
+    .nav-list .nav-link {
+      color: #FFFFFF;
+      
+      &:hover {
+        color: #ff3a3a;
+      }
+      
+      &.active {
+        color: #e01a1a;
+      }
+    }
+    
+    .login-btn {
+      color: #FFFFFF;
+      border-color: #FF0000;
+      
+      &:hover {
+        background-color: rgba(255, 58, 58, 0.1);
+      }
+    }
+    
+    .contact-btn {
+      background-color: #FF0000;
+      color: #FFFFFF;
+
+      &:hover {
+        background-color: #e01a1a;
+      }
+    }
+    
+    .menu-toggle .bar {
+      background-color: #ff3a3a;
+    }
+  }
 }
 
 .logo {
@@ -57,6 +104,7 @@
   font-size: 32px;
   color: #e01a1a;
   font-family: 'Koulen', sans-serif;
+  transition: color 0.3s ease;
   
   @media screen and (max-width: 768px) {
     font-size: 28px;
@@ -75,6 +123,7 @@
   color: #0900FF;
   font-size: 32px;
   font-family: 'Koulen', sans-serif;
+  transition: color 0.3s ease;
   
   @media screen and (max-width: 768px) {
     font-size: 28px;
@@ -142,6 +191,12 @@
       &:hover {
         color: #e01a1a;
       }
+      
+      /* إضافة حالة active للرابط */
+      &.active {
+        color: #e01a1a;
+        font-weight: 700;
+      }
     }
   }
 }
@@ -176,7 +231,7 @@
   font-weight: 700;
   font-size: 14px;
   font-family: 'Bricolage Grotesque', sans-serif;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: all 0.2s ease;
   white-space: nowrap;
   
   @media screen and (max-width: 768px) {
@@ -217,7 +272,7 @@
   font-weight: 700;
   font-size: 14px;
   font-family: 'Bricolage Grotesque', sans-serif;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: all 0.2s ease;
   white-space: nowrap;
   
   @media screen and (max-width: 768px) {
@@ -320,25 +375,113 @@
     }
   }
 }
-
-/* إضافة كود للتأكد من أن Hero Section يبدأ بعد الهيدر تماماً */
-.hero-section {
-  margin-top: 20px;
+/* زر تبديل المود - تصميم مبسط واحترافي */
+.dark-mode-toggle {
+  width: 47px;
+  height: 22px;
+  margin-right: 15px;
+  cursor: pointer;
   position: relative;
-  z-index: 1;
+  border-radius: 11px;
+  background-color: #e0e0e0;
+  transition: background-color 0.3s ease;
   
-  /* تعديل الهامش عندما تكون القائمة مفتوحة والهيدر ثابت */
-  body.menu-active & {
-    @media screen and (max-width: 992px) {
-      margin-top: 70px; /* تعديل هذه القيمة حسب ارتفاع الهيدر */
+  @media screen and (max-width: 768px) {
+    width: 47px;
+  height: 22px;
+    border-radius: 10px;
+    margin-right: 12px;
+  }
+  
+  @media screen and (max-width: 576px) {
+    width: 47px;
+  height: 22px;
+    border-radius: 9px;
+    margin-right: 10px;
+  }
+  
+  /* الدائرة المتحركة */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    padding-right:1px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    
+    @media screen and (max-width: 768px) {
+      width: 16px;
+      height: 16px;
     }
     
     @media screen and (max-width: 576px) {
-      margin-top: 60px;
+      width: 13px;
+      height: 13px;
+    }
+  }
+    
+  /* أيقونات الشمس والقمر */
+  &::before {
+    content: '☀️';
+    position: absolute;
+    font-size: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    
+    @media screen and (max-width: 576px) {
+      font-size: 11px;
+      padding-right:5px;
+
+    }
+  }
+  
+  .moon-icon {
+    content: '🌙';
+    position: absolute;
+    font-size: 12px;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    
+    @media screen and (max-width: 576px) {
+      font-size: 11px;
+    }
+  }
+  
+  /* حالة التبديل للوضع المظلم */
+  &.active {
+    background-color: #333;
+    
+    &::after {
+      transform: translateX(22px);
+      background-color: #e01a1a;
+      
+      @media screen and (max-width: 768px) {
+        transform: translateX(20px);
+      }
+      
+      @media screen and (max-width: 576px) {
+        transform: translateX(18px);
+      }
+    }
+    
+    &::before {
+      opacity: 1;
+    }
+    
+    .moon-icon {
+      opacity: 1;
     }
   }
 }
-
 /* إضافة تحريك سلس للقائمة عند فتحها */
 @keyframes fadeIn {
   from {

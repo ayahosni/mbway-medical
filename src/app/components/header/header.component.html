@@ -1,4 +1,4 @@
-<header class="main-header">
+<header class="main-header" [class.dark-mode]="isDarkMode">
   <div class="logo">
     <a href="/" class="logo">
       <span class="logo-text">MB</span>
@@ -6,7 +6,13 @@
     </a>
   </div>
   
-  <button class="menu-toggle" (click)="toggleMenu()">
+  <!-- إضافة زر Dark Mode على شكل شمس -->
+ <!-- استبدلي الكود الحالي للزر بهذا -->
+<div class="dark-mode-toggle" [class.active]="isDarkMode" (click)="toggleDarkMode($event)">
+  <span class="moon-icon">🌙</span>
+</div>
+  
+  <button class="menu-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()">
     <span class="bar"></span>
     <span class="bar"></span>
     <span class="bar"></span>
@@ -15,7 +21,14 @@
   <nav class="main-nav" [class.active]="isMenuOpen">
     <ul class="nav-list">
       <li *ngFor="let category of categories">
-        <a href="{{ category.link }}" class="nav-link">{{ category.name }}</a>
+        <a 
+          href="{{ category.link }}" 
+          class="nav-link" 
+          [class.active]="category.name === activeCategory"
+          (click)="setActiveCategory(category.name)"
+        >
+          {{ category.name }}
+        </a>
       </li>
     </ul>
   </nav>

@@ -60,14 +60,15 @@
       height: 35px; 
       background: white;
       color: red;
-      font-size: 16px; 
-      font-weight: bold;
+      font-size: 20px; 
       border-radius: 10px;
       margin: 10px; 
       text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-family: 'Bricolage Grotesque', sans-serif;
+
     }
   }
 
@@ -122,6 +123,12 @@
       border-radius: 5px;
       font-size: 14px; 
       font-family: 'Bricolage Grotesque', sans-serif;
+    }
+
+    input::placeholder,
+    select::placeholder,
+    textarea::placeholder {
+      color: #9C9C9C;
     }
 
     textarea {
@@ -237,10 +244,14 @@
       margin: 20px 0;
       
       .info-box {
-        width: 250px;
+        width: 270px;
         height: 35px !important;
         margin: 5px 0;
+        transition: all 0.3s ease;
+
+       
       }
+      
     }
     
     .form-group-row {
